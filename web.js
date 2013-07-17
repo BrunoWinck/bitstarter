@@ -6,10 +6,11 @@ var text1 = fs.readFileSync( infile);
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
+  response.setHeader('Content-Type', 'text/html');
   response.send(text1);
 });
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
